@@ -1,0 +1,17 @@
+---
+  - hosts: 127.0.0.1
+    connection: local
+    tasks:
+    - name: Create EC2 instances
+      ec2:
+        key_name: "keypair"
+        region: "us-east-1"
+        instance_type: "t2.micro"
+        image: "ami-0c2b8ca1dad447f8a"
+        vpc_subnet_id: "subnet-01188e20"
+        group: "launch-wizard-2"
+        wait: yes
+        count: 1
+        assign_public_ip: yes
+~
+
